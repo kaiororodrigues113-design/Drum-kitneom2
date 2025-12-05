@@ -1,0 +1,68 @@
+#neon-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center,
+      rgba(20, 20, 20, 0.8),   /* Preto quase sólido */
+      rgba(0, 0, 0, 1),        /* Preto total */
+      black 100%);
+  animation: neonPulse 6s infinite alternate;
+  z-index: -1;
+  filter: blur(10px);
+}
+
+@keyframes neonPulse {
+  0% {
+    filter: blur(10px) brightness(1);
+  }
+  50% {
+    filter: blur(12px) brightness(1.2);
+  }
+  100% {
+    filter: blur(10px) brightness(1);
+  }
+}
+
+body {
+  color: #eee; /* quase branco */
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 40px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px #fff, 0 0 20px #555; /* destaque branco sombrio */
+}
+
+.drum-container {
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  gap: 20px;
+  justify-content: center;
+}
+
+.pad {
+  width: 120px;
+  height: 120px;
+  background: rgba(10, 10, 10, 0.95); /* Preto profundo */
+  border: 2px solid #222;              /* leve contorno */
+  border-radius: 12px;
+  font-size: 2rem;
+  color: #fff;                          /* destaque branco */
+  cursor: pointer;
+  transition: 0.12s;
+  box-shadow: 0 0 5px #111;            /* leve glow sombrio */
+}
+
+.pad.active,
+.pad:active {
+  background: #111;                     /* um pouco mais claro */
+  color: #8c00ff;                       /* neon azul venenoso para contraste */
+  transform: scale(0.92);
+  box-shadow: 0 0 15px #8c00ff, 0 0 30px #8c00ff; /* glow venenoso */
+}
